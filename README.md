@@ -1,13 +1,13 @@
-country-state-city
+country-state-iso
 ==============================
-Basic library for Country, State and City
+Basic library for Country and State with ISO codes - forked from [harpreetkhalsagtbit/country-state](https://github.com/harpreetkhalsagtbit/country-state)
 
 Data Source:<br>
 https://github.com/dr5hn/countries-states-cities-database<br>
 For any data related issue, you can raise a Issue [here](https://github.com/dr5hn/countries-states-cities-database/issues/new).
 
 # Install
-`npm i country-state-city`
+`npm i country-state-iso`
 
 # Usage
 
@@ -16,20 +16,20 @@ For any data related issue, you can raise a Issue [here](https://github.com/dr5h
    
      ```js
 	// Latest version - v3.0.0 with Tree Shaking to reduce bundle size
-	import { Country, State, City }  from 'country-state-city';
+	import { Country, State }  from 'country-state-iso';
 	console.log(Country.getAllCountries())
 	console.log(State.getAllStates())
 
      // Import Interfaces`
-	 import { ICountry, IState, ICity } from 'country-state-city'
+	 import { ICountry, IState } from 'country-state-iso'
 	 
      ```
   - AMD Module usage
   
     ```js
 	// Latest version - v3.0.0
-	let Country = require('country-state-city').Country;
-	let State = require('country-state-city').State;
+	let Country = require('country-state-iso').Country;
+	let State = require('country-state-iso').State;
 
 	console.log(Country.getAllCountries())
 	console.log(State.getAllStates())
@@ -42,44 +42,16 @@ For any data related issue, you can raise a Issue [here](https://github.com/dr5h
   - ES6 Module usage
    
      ```js
-     import csc from 'country-state-city';
+     import csc from 'country-state-iso';
      ```
 
   - AMD Module usage
   
     ```js
-    let csc = require('country-state-city').default;
+    let csc = require('country-state-iso').default;
     ```
 
 # Docs
-
-City.getCountryByCode(countryCode)
----------------
-
-It accepts a valid `CountryCode` eg: `'AS'` and   returns *Country Details*
-
-type: **json | ICountry**
-
-```js
-{
-	"isoCode": "IN",
-	"name": "India",
-	"phonecode": "91",
-	"flag": "🇮🇳",
-	"currency": "INR",
-	"latitude": "20.00000000",
-	"longitude": "77.00000000",
-	"timezones": [
-		{
-			"zoneName": "Asia\/Kolkata",
-			"gmtOffset": 19800,
-			"gmtOffsetName": "UTC+05:30",
-			"abbreviation": "IST",
-			"tzName": "Indian Standard Time"
-		}
-	]
-}
-```
 
 State.getStateByCodeAndCountry(stateCode, countryCode)
 ---------------
@@ -113,45 +85,6 @@ type: **array of json | IState**
 		"countryCode": "IN",
 		"latitude": "28.70405920",
 		"longitude": "77.10249020"
-	}
-]
-
-```
-City.getCitiesOfState(countryCode, stateCode)
----------------
-
-It accepts a valid `CountryCode`, `StateCode` and returns *all Cities* as Array of JSON
-
-type: **array of json | ICity**
-
-```js
-[
-	{
-		"name": "New Delhi",
-		"countryCode": "IN",
-		"stateCode": "DL",
-		"latitude": "28.63576000",
-		"longitude": "77.22445000"
-	}
-]
-
-```
-
-City.getCitiesOfCountry(countryCode)
----------------
-
-It accepts a valid `CountryCode` and returns *all Cities* as Array of JSON
-
-type: **array of json | ICity**
-
-```js
-[
-	{
-		"name": "New Delhi",
-		"countryCode": "IN",
-		"stateCode": "DL",
-		"latitude": "28.63576000",
-		"longitude": "77.22445000"
 	}
 ]
 
@@ -201,24 +134,6 @@ type: **array of json | IState**
 		"latitude": "28.70405920",
 		"longitude": "77.10249020"
 
-	}
-]
-```
-
-City.getAllCities
----------------
-It returns **all Cities**
-
-type: **array of json | ICity**
-
-```js
-[
-	{
-		"name": "Delhi",
-		"isoCode": "DL",
-		"countryCode": "IN",
-		"latitude": "28.70405920",
-		"longitude": "77.10249020"
 	}
 ]
 ```
